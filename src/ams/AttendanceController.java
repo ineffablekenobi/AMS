@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -48,13 +49,45 @@ public class AttendanceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    private Boolean Validate(){
+        
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Empty Field");
+            
+        if(courseNo.getText().equals("")){
+            alert.setContentText("Enter CourseNo");
+            alert.show();
+            return Boolean.FALSE;
+        }
+        
+        if(session.getText().equals("")){
+            alert.setContentText("Enter Session");
+            alert.show();
+            return Boolean.FALSE;
+        }
+        
+        if(classNo.getText().equals("")){
+            alert.setContentText("Enter ClassNO");
+            alert.show();
+            return Boolean.FALSE;
+        }
+        
+        return Boolean.TRUE;
+        
+        
+    }
 
     @FXML
     private void onClickAttendance(ActionEvent event) throws ClassNotFoundException, SQLException {
         
         String query = "Select * from Courses where CourseNo = '"+
                 courseNo.getText()+"'AND CourseSession = '" + session.getText()+"';";
+        
+        if(!Validate()){
+            return;
+        }
        
         DBConnect dbc = new DBConnect();
         dbc.connectToDB();

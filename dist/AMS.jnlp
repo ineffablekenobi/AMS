@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="AMS.jar" size="42875" download="eager" />
+    <jar href="AMS.jar" size="39545" download="eager" />
     <jar href="lib/AnimateFX-1.2.1.jar" size="94267" download="eager" />
     <jar href="lib/javafx-swt.jar" size="37117" download="eager" />
     <jar href="lib/javafx.base.jar" size="745867" download="eager" />
