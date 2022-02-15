@@ -5,7 +5,7 @@
  */
 package ams;
 
-import Utilities.TableLoader;
+import ams.utils.TableLoader;
 import ams.utils.DBConnect;
 import java.net.URL;
 import java.sql.Connection;
@@ -123,8 +123,10 @@ public class DashboardController implements Initializable {
         }
     }
 
+   
+
     @FXML
-    private void onClickChecker(ActionEvent event) {
+    private void onClickGoToCourse(ActionEvent event) {
         
         System.out.println(coursesTable.getSelectionModel().getSelectedItem().toString());
     }
